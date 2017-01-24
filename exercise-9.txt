@@ -1,0 +1,31 @@
+How many Accounts exist?
+
+SELECT SUM(account) From Accounts;
+
+mysql> SELECT SUM(id) FROM Account; 
++---------+
+| SUM(id) |
++---------+
+|  500500 |
++---------+
+1 row in set (0.00 sec)
+
+How many Address Books exist?
+
+mysql> SELECT SUM(id) FROM AddressBook;
++---------+
+| SUM(id) |
++---------+
+|  605550 |
++---------+
+1 row in set (0.00 sec)
+
+How many Address Book Entries exist?
+
+mysql> SELECT SUM(id) FROM Entry;
++---------+
+| SUM(id) |
++---------+
+| 8002000 |
++---------+
+1 row in set (0.00 sec)

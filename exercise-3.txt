@@ -1,0 +1,29 @@
+Retrieve data from the previously inserted decodemtl_addressbook.Account row
+Retrieve data from the previously inserted decodemtl_addressbook.AddressBook row
+Retrieve data from the previously inserted decodemtl_addressbook.Entry rows
+
+mysql> SELECT * FROM Account;
++----+-------+----------+---------------------+------------+
+| id | email | password | createdOn           | modifiedOn |
++----+-------+----------+---------------------+------------+
+|  1 |       |          | 0000-00-00 00:00:00 | NULL       |
++----+-------+----------+---------------------+------------+
+1 row in set (0.00 sec);
+
+mysql> SELECT * FROM AddressBook;
++----+-----------+------+---------------------+------------+
+| id | accountId | name | createdOn           | modifiedOn |
++----+-----------+------+---------------------+------------+
+|  1 |         0 |      | 0000-00-00 00:00:00 | NULL       |
++----+-----------+------+---------------------+------------+
+1 row in set (0.00 sec);
+
+mysql> SELECT * FROM Entry;
++----+---------------+-----------+----------+----------+------+---------+----------------+----------------+------------------+-----------------+-----------------+
+| id | addressBookId | firstName | lastName | birthday | type | subtype | contentLineOne | contentLineTwo | contentLineThree | contentLineFour | contentLineFive |
++----+---------------+-----------+----------+----------+------+---------+----------------+----------------+------------------+-----------------+-----------------+
+|  1 |             0 |           | NULL     | NULL     | home | phone   |                | NULL           | NULL             | NULL            | NULL            |
+|  2 |             0 |           | NULL     | NULL     | home | phone   |                | NULL           | NULL             | NULL            | NULL            |
+|  3 |             0 |           | NULL     | NULL     | home | phone   |                | NULL           | NULL             | NULL            | NULL            |
++----+---------------+-----------+----------+----------+------+---------+----------------+----------------+------------------+-----------------+-----------------+
+3 rows in set (0.00 sec);

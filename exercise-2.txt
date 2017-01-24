@@ -1,0 +1,11 @@
+Insert one row into decodemtl_addressbook.Account
+Insert one row into decodemtl_addressbook.AddressBook
+Insert three rows into decodemtl_addressbook.Entry
+
+mysql> INSERT INTO Account (Id) Value("1");
+Query OK, 1 row affected, 3 warnings (0.00 sec)
+
+mysql> INSERT INTO AddressBook (Id) Value("1");
+Query OK, 1 row affected, 3 warnings (0.00 sec)
+
+mysql> INSERT INTO Entry (id) VALUES(1),(2),(3);

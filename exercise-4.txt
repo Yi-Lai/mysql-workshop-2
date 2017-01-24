@@ -1,0 +1,51 @@
+Modify the decodemtl_addressbook.Account row
+Modify the decodemtl_addressbook.AddressBook row
+Modify the three decodemtl_addressbook.Entry rows using one query only
+
+
+1.
+mysql> UPDATE Account SET email = "random@email.com";
+mysql> SELECT * FROM Account;
++----+------------------+----------+---------------------+------------+
+| id | email            | password | createdOn           | modifiedOn |
++----+------------------+----------+---------------------+------------+
+|  1 | random@email.com |          | 0000-00-00 00:00:00 | NULL       |
++----+------------------+----------+---------------------+------------+
+1 row in set (0.00 sec)
+
+
+2.
+mysql> UPDATE AddressBook SET name = "John";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM AddressBook;
++----+-----------+------+---------------------+------------+
+| id | accountId | name | createdOn           | modifiedOn |
++----+-----------+------+---------------------+------------+
+|  1 |         0 | John | 0000-00-00 00:00:00 | NULL       |
++----+-----------+------+---------------------+------------+
+1 row in set (0.00 sec)
+
+
+3.
+mysql> UPDATE Entry 
+         SET firstName = CASE id
+             WHEN 1 THEN "Tom"
+             WHEN 2 THEN "John"
+             WHEN 3 THEN "Kelly"
+         END
+     WHERE id IN (1,2,3);
+     
+Query OK, 3 rows affected (0.00 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> SELECT * FROM Entry;
++----+---------------+-----------+----------+----------+------+---------+----------------+----------------+------------------+-----------------+-----------------+
+| id | addressBookId | firstName | lastName | birthday | type | subtype | contentLineOne | contentLineTwo | contentLineThree | contentLineFour | contentLineFive |
++----+---------------+-----------+----------+----------+------+---------+----------------+----------------+------------------+-----------------+-----------------+
+|  1 |             0 | Tom       | NULL     | NULL     | home | phone   |                | NULL           | NULL             | NULL            | NULL            |
+|  2 |             0 | John      | NULL     | NULL     | home | phone   |                | NULL           | NULL             | NULL            | NULL            |
+|  3 |             0 | Kelly     | NULL     | NULL     | home | phone   |                | NULL           | NULL             | NULL            | NULL            |
++----+---------------+-----------+----------+----------+------+---------+----------------+----------------+------------------+-----------------+-----------------+
+3 rows in set (0.00 sec)
